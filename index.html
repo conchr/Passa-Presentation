@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Η Γέφυρα του Πασσά: Ένα Μνημείο στα Φάρσαλα</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,245,210,0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255,245,210,0.2) 0%, transparent 50%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><rect fill="%234d3e1e" width="100" height="100"/><path fill="%235d4e2e" d="M0 0h100v2H0zM0 4h100v2H0zM0 8h100v2H0zM0 12h100v2H0zM0 16h100v2H0zM0 20h100v2H0zM0 24h100v2H0zM0 28h100v2H0zM0 32h100v2H0zM0 36h100v2H0zM0 40h100v2H0zM0 44h100v2H0zM0 48h100v2H0zM0 52h100v2H0zM0 56h100v2H0zM0 60h100v2H0zM0 64h100v2H0zM0 68h100v2H0zM0 72h100v2H0zM0 76h100v2H0zM0 80h100v2H0zM0 84h100v2H0zM0 88h100v2H0zM0 92h100v2H0zM0 96h100v2H0z"/></svg>'),
+                #e8dcb5;
             color: #333;
             display: flex;
             justify-content: center;
@@ -17,17 +27,21 @@
             min-height: 100vh;
             overflow: hidden;
         }
+        
         #presentation-container {
-            width: 90vw;
-            height: 80vh;
-            max-width: 1200px;
-            max-height: 800px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 95vw;
+            height: 85vh;
+            max-width: 1400px;
+            max-height: 900px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
             position: relative;
-            background-color: #fff;
-            border-radius: 10px;
+            background-color: #f8f2e0;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 8px solid #d4c8a4;
         }
-       .slide {
+        
+        .slide {
             position: absolute;
             top: 0;
             left: 0;
@@ -35,181 +49,555 @@
             height: 100%;
             display: none;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            padding: 40px;
+            padding: 40px 60px 120px; /* Increased bottom padding for navigation */
             box-sizing: border-box;
             text-align: center;
-            transition: opacity 0.5s ease-in-out;
-            background-color: #ffffff;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+            background-color: rgba(248, 242, 224, 0.85);
+            overflow-y: auto;
         }
-       .slide.active {
+        
+        .slide.active {
             display: flex;
             opacity: 1;
         }
-        h1 {
-            color: #007bff;
-            font-size: 2.5em;
+        
+        .municipality-header {
+            width: 100%;
+            text-align: left;
+            font-size: 0.9em;
+            color: #5d4e2e;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        
+        .slide-header {
+            width: 100%;
+            padding: 15px 0;
             margin-bottom: 20px;
+            border-bottom: 2px solid #d4c8a4;
         }
-        h2 {
-            color: #28a745;
-            font-size: 1.8em;
+        
+        h1 {
+            color: #3a2e1a;
+            font-size: 2.8em;
             margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         }
+        
+        h2 {
+            color: #5d4e2e;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e0d6b8;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+        
+        .slide-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: center;
+        }
+        
         p, li {
-            font-size: 1.2em;
-            line-height: 1.6;
-            margin: 10px 0;
-            max-width: 80%;
+            font-size: 1.3em;
+            line-height: 1.7;
+            margin: 12px 0;
+            max-width: 90%;
+            text-align: left;
         }
+        
         ul {
+            width: 90%;
             list-style: none;
             padding: 0;
         }
-       .citation {
-            font-size: 0.8em;
-            color: #888;
-            margin-top: 5px;
+        
+        li {
+            margin: 15px 0;
+            padding-left: 20px;
+            position: relative;
         }
-       .navigation {
+        
+        li:before {
+            content: "•";
+            color: #5d4e2e;
+            font-weight: bold;
             position: absolute;
-            bottom: 10px;
+            left: 0;
+        }
+        
+        .citation {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        .bottom-navigation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
             display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 0;
+            background: rgba(248, 242, 224, 0.95);
+            border-top: 2px solid #d4c8a4;
             box-sizing: border-box;
         }
-       .nav-button {
-            background-color: #007bff;
-            color: white;
+        
+        .nav-controls {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 30px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        
+        .nav-button {
+            background: linear-gradient(to bottom, #5d4e2e, #3a2e1a);
+            color: #f8f2e0;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 30px;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-button:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .slide-counter {
+            font-size: 1.1em;
+            color: #5d4e2e;
+            align-self: center;
+            background-color: rgba(248, 242, 224, 0.9);
+            padding: 8px 15px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .restart-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #5d4e2e;
+            color: #f8f2e0;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+        
+        .restart-button:hover {
+            background: #3a2e1a;
+        }
+        
+        .home-button {
+            background: linear-gradient(to bottom, #5d4e2e, #3a2e1a);
+            color: #f8f2e0;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 30px;
             font-size: 1em;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            display: inline-block;
         }
-       .nav-button:hover {
-            background-color: #0056b3;
+        
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
-       .slide-counter {
-            font-size: 1em;
-            color: #555;
-            align-self: flex-end;
-            margin-top: 10px;
+        
+        .bridge-image {
+            max-width: 80%;
+            max-height: 300px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+            object-fit: cover;
+        }
+        
+        .final-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+            width: 80%;
+            max-width: 500px;
+        }
+        
+        .final-button {
+            background: linear-gradient(to bottom, #5d4e2e, #3a2e1a);
+            color: #f8f2e0;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            border-radius: 30px;
+            font-size: 1.2em;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .final-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            #presentation-container {
+                width: 100vw;
+                height: 100vh;
+                max-width: none;
+                max-height: none;
+                border-radius: 0;
+                border: none;
+            }
+            
+            .slide {
+                padding: 20px 20px 100px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.6em;
+            }
+            
+            p, li {
+                font-size: 1.1em;
+            }
+            
+            .nav-controls {
+                padding: 0 15px;
+            }
+            
+            .nav-button {
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+            
+            .home-button {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+            
+            .bridge-image {
+                max-width: 95%;
+                max-height: 200px;
+            }
+            
+            .final-buttons {
+                width: 95%;
+            }
+            
+            .final-button {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            h1 {
+                font-size: 3.2em;
+            }
+            
+            h2 {
+                font-size: 2.4em;
+            }
+            
+            p, li {
+                font-size: 1.5em;
+            }
+            
+            .municipality-header {
+                font-size: 1.1em;
+            }
+            
+            .bridge-image {
+                max-height: 350px;
+            }
+        }
+        
+        @media (min-width: 2000px) {
+            h1 {
+                font-size: 4em;
+            }
+            
+            h2 {
+                font-size: 3em;
+            }
+            
+            p, li {
+                font-size: 1.8em;
+            }
+            
+            .municipality-header {
+                font-size: 1.3em;
+            }
+            
+            .nav-button, .home-button {
+                font-size: 1.3em;
+                padding: 15px 30px;
+            }
+            
+            .bridge-image {
+                max-height: 400px;
+            }
+            
+            .final-button {
+                font-size: 1.5em;
+                padding: 20px 40px;
+            }
+        }
+        
+        /* Smart TV adjustments */
+        @media (min-width: 3840px) {
+            h1 {
+                font-size: 5em;
+            }
+            
+            h2 {
+                font-size: 4em;
+            }
+            
+            p, li {
+                font-size: 2.5em;
+            }
+            
+            .municipality-header {
+                font-size: 1.8em;
+            }
+            
+            .nav-button, .home-button {
+                font-size: 1.8em;
+                padding: 20px 40px;
+            }
+            
+            .slide-counter {
+                font-size: 1.8em;
+            }
+            
+            .bridge-image {
+                max-height: 500px;
+            }
+            
+            .final-button {
+                font-size: 2em;
+                padding: 25px 50px;
+            }
         }
     </style>
 </head>
 <body>
 
 <div id="presentation-container">
-    <div class="slide" id="slide-1">
-        <h1>Η Γέφυρα του Πασσά στα Φάρσαλα</h1>
-        <h2>Ένα Μνημείο 270 Ετών στον Ποταμό Ενιπέα</h2>
-        <p class="citation">Χρησιμοποιήστε τα βέλη στο πληκτρολόγιο ή τα κουμπιά για πλοήγηση.</p>
+    <button class="restart-button" onclick="restartPresentation()">Επανεκκίνηση</button>
+    
+    <div class="slide active" id="slide-1">
+        <div class="municipality-header">ΔΗΜΟΣ ΦΑΡΣΑΛΩΝ 2025</div>
+        <div class="slide-header">
+            <h1>Η Γέφυρα του Πασσά στα Φάρσαλα</h1>
+            <h2>Ένα Μνημείο 270 Ετών στον Ποταμό Ενιπέα</h2>
+        </div>
+        <img src="https://raw.githubusercontent.com/conchr/Passa-Presentation/main/passa%203.jpg" alt="Γέφυρα του Πασσά" class="bridge-image">
+        <div class="slide-content">
+            <p>Μια ιστορική γέφυρα που συνδέει το παρελθόν με το παρόν της Θεσσαλίας</p>
+            <p class="citation">Χρησιμοποιήστε τα βέλη στο πληκτρολόγιο ή τα κουμπιά για πλοήγηση.</p>
+        </div>
     </div>
 
     <div class="slide" id="slide-2">
+        <div class="municipality-header">ΔΗΜΟΣ ΦΑΡΣΑΛΩΝ 2025</div>
         <h2>Πού Βρίσκεται και Ποιο Είναι το Όνομά Της;</h2>
-        <ul>
-            <li>**Θέση:** Βρίσκεται βόρεια της πόλης των Φαρσάλων, διασχίζοντας τον ποταμό Ενιπέα.[1]</li>
-            <li>**Ιστορικό Όνομα:** «Γεφύρι του Πασσά» (λόγω του κτήτορα) ή «Τσιναρλή» (κατά την Οθωμανική περίοδο).[2, 1]</li>
-            <li>**Σημασία:** Ήταν κεντρικό πέρασμα στον δρόμο που συνέδεε τη Λάρισα με τον Δομοκό, δηλαδή τη Βόρεια με τη Νότια Ελλάδα.[3, 1]</li>
-        </ul>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Θέση:</strong> Βρίσκεται βόρεια της πόλης των Φαρσάλων, διασχίζοντας τον ποταμό Ενιπέα.</li>
+                <li><strong>Ιστορικό Όνομα:</strong> «Γεφύρι του Πασσά» (λόγω του κτήτορα) ή «Τσιναρλή» (κατά την Οθωμανική περίοδο).</li>
+                <li><strong>Σημασία:</strong> Ήταν κεντρικό πέρασμα στον δρόμο που συνέδεε τη Λάρισα με τον Δομοκό, δηλαδή τη Βόρεια με τη Νότια Ελλάδα.</li>
+            </ul>
+        </div>
     </div>
 
     <div class="slide" id="slide-3">
+        <div class="municipality-header">ΔΗΜΟΣ ΦΑΡΣΑΛΩΝ 2025</div>
         <h2>Πότε και Ποιος την Έκτισε;</h2>
-        <ul>
-            <li>**Έτος Κατασκευής:** Το μνημείο οικοδομήθηκε αρχικά το **1752**.[3, 1]</li>
-            <li>**Ο Κτήτορας:** Η κατασκευή έγινε με διαταγή του τότε Οθωμανού διοικητή (Wali) της Θεσσαλίας, **Αχμέτ Ραμίτ Πασά**.[1]</li>
-            <li>**Πλαίσιο:** Πρόκειται για ένα από τα σημαντικότερα κοσμικά τεχνικά έργα της Ύστερης Οθωμανικής περιόδου στη Θεσσαλία.[1]</li>
-        </ul>
+        <img src="https://raw.githubusercontent.com/conchr/Passa-Presentation/main/passa%202.jpg" alt="Γέφυρα του Πασσά" class="bridge-image">
+        <div class="slide-content">
+            <ul>
+                <li><strong>Έτος Κατασκευής:</strong> Το μνημείο οικοδομήθηκε αρχικά το <strong>1752</strong>.</li>
+                <li><strong>Ο Κτήτορας:</strong> Η κατασκευή έγινε με διαταγή του τότε Οθωμανού διοικητή (Wali) της Θεσσαλίας, <strong>Αχμέτ Ραμίτ Πασά</strong>.</li>
+                <li><strong>Πλαίσιο:</strong> Πρόκειται για ένα από τα σημαντικότερα κοσμικά τεχνικά έργα της Ύστερης Οθωμανικής περιόδου στη Θεσσαλία.</li>
+            </ul>
+        </div>
     </div>
 
     <div class="slide" id="slide-4">
+        <div class="municipality-header">ΔΗΜΟΣ ΦΑΡΣΑΛΩΝ 2025</div>
         <h2>Εντυπωσιακές Διαστάσεις</h2>
-        <ul>
-            <li>**Συνολικό Μήκος:** 110 μέτρα.[3, 1]</li>
-            <li>**Πλάτος Φορέα:** 5,5 μέτρα.[3]</li>
-            <li>**Αρχιτεκτονική Αξία:** Το μήκος αυτό την καθιστά πιθανόν τη **μεγαλύτερη σωζόμενη τοξωτή γέφυρα** της Οθωμανικής περιόδου στον ελλαδικό χώρο.[1]</li>
-        </ul>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Συνολικό Μήκος:</strong> 110 μέτρα.</li>
+                <li><strong>Πλάτος Φορέα:</strong> 5,5 μέτρα.</li>
+                <li><strong>Αρχιτεκτονική Αξία:</strong> Το μήκος αυτό την καθιστά πιθανόν τη <strong>μεγαλύτερη σωζόμενη τοξωτή γέφυρα</strong> της Οθωμανικής περιόδου στον ελλαδικό χώρο.</li>
+            </ul>
+        </div>
     </div>
 
     <div class="slide" id="slide-5">
+        <div class="municipality-header">ΔΗΜΟΣ ΦΑΡΣΑΛΩΝ 2025</div>
         <h2>Το Μυστικό της Αντοχής: Τα 7 Ανισομεγέθη Τόξα</h2>
-        <ul>
-            <li>**Δομή:** Η γέφυρα αποτελείται από **επτά (7) τόξα**.[1]</li>
-            <li>**Μηχανική Λύση:** Τα τόξα είναι **ανισομεγέθη** σε άνοιγμα και ύψος.[1]</li>
-            <li>**Στόχος:** Η έξυπνη αυτή κατασκευή σχεδιάστηκε για να ανταποκρίνεται στη φυσική ροή του Ενιπέα και να διασφαλίζει την απαραίτητη εκτόνωση του υδάτινου όγκου κατά τις πλημμύρες, αυξάνοντας τη μακροχρόνια αντοχή της.[1]</li>
-        </ul>
+        <img src="https://raw.githubusercontent.com/conchr/Passa-Presentation/main/passa%204.jpg" alt="Γέφυρα του Πασσά" class="bridge-image">
+        <div class="slide-content">
+            <ul>
+                <li><strong>Δομή:</strong> Η γέφυρα αποτελείται από <strong>επτά (7) τόξα</strong>.</li>
+                <li><strong>Μηχανική Λύση:</strong> Τα τόξα είναι <strong>ανισομεγέθη</strong> σε άνοιγμα και ύψος.</li>
+                <li><strong>Στόχος:</strong> Η έξυπνη αυτή κατασκευή σχεδιάστηκε για να ανταποκρίνεται στη φυσική ροή του Ενιπέα και να διασφαλίζει την απαραίτητη εκτόνωση του υδάτινου όγκου κατά τις πλημμύρες, αυξάνοντας τη μακροχρόνια αντοχή της.</li>
+            </ul>
+        </div>
     </div>
 
     <div class="slide" id="slide-6">
+        <div class="municipality-header">ΔΗΜΟΣ ΦΑΡΣΑΛΩΝ 2025</div>
         <h2>Πέτρα και Τεχνογνωσία</h2>
-        <ul>
-            <li>**Υλικό:** Κατασκευάστηκε με λιθοδομή, ακολουθώντας τις παραδοσιακές τεχνικές της εποχής.[4]</li>
-            <li>**Δομικά Μέρη:** Οι πυλώνες (βάθρα) αποτελούνται από ξεστές λιθοδομές, ενώ το τύμπανο και η κορωνίδα χρησιμοποιούν λαξευτές πέτρες.[4]</li>
-            <li>**Ποιότητα:** Η υψηλή ποιότητα της δόμησης ήταν απαραίτητη για να αντέξει τόσο στην κυκλοφορία όσο και στις υδρολογικές πιέσεις.[4]</li>
-        </ul>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Υλικό:</strong> Κατασκευάστηκε με λιθοδομή, ακολουθώντας τις παραδοσιακές τεχνικές της εποχής.</li>
+                <li><strong>Δομικά Μέρη:</strong> Οι πυλώνες (βάθρα) αποτελούνται από ξεστές λιθοδομές, ενώ το τύμπανο και η κορωνίδα χρησιμοποιούν λαξευτές πέτρες.</li>
+                <li><strong>Ποιότητα:</strong> Η υψηλή ποιότητα της δόμησης ήταν απαραίτητη για να αντέξει τόσο στην κυκλοφορία όσο και στις υδρολογικές πιέσεις.</li>
+            </ul>
+        </div>
     </div>
 
     <div class="slide" id="slide-7">
+        <div class="municipality-header">ΔΗΜΟΣ ΦΑΡΣΑΛΩΝ 2025</div>
         <h2>Μετασκευές και Αλλαγές</h2>
-        <ul>
-            <li>**20ός Αιώνας:** Μετά την απελευθέρωση της Θεσσαλίας (1881), η γέφυρα μετατράπηκε σε αμαξιτή οδό για να εξυπηρετήσει τις απαιτήσεις του νεοσύστατου ελληνικού κράτους.[1]</li>
-            <li>**Το Βορειότερο Τόξο:** Το μικρότερο και βορειότερο τόξο κατασκευάσθηκε αργότερα, σε διαφορετική φάση δόμησης, και ενισχύθηκε με πέτρινο στηθαίο, σημάδι μεταγενέστερης επισκευής ή επέκτασης.[1]</li>
-        </ul>
+        <div class="slide-content">
+            <ul>
+                <li><strong>20ός Αιώνας:</strong> Μετά την απελευθέρωση της Θεσσαλίας (1881), η γέφυρα μετατράπηκε σε αμαξιτή οδό για να εξυπηρετήσει τις απαιτήσεις του νεοσύστατου ελληνικού κράτους.</li>
+                <li><strong>Το Βορειότερο Τόξο:</strong> Το μικρότερο και βορειότερο τόξο κατασκευάσθηκε αργότερα, σε διαφορετική φάση δόμησης, και ενισχύθηκε με πέτρινο στηθαίο, σημάδι μεταγενέστερης επισκευής ή επέκτασης.</li>
+            </ul>
+        </div>
     </div>
 
     <div class="slide" id="slide-8">
+        <div class="municipality-header">ΔΗΜΟΣ ΦΑΡΣΑΛΩΝ 2025</div>
         <h2>Κόμβος Μεταφορών: Η Στρατηγική Σημασία</h2>
-        <p>Η γέφυρα ήταν ζωτικής σημασίας για την Οθωμανική διοίκηση, καθώς εξασφάλιζε την ομαλή διέλευση στρατευμάτων, αγαθών και εμπορίου στον κεντρικό άξονα της Θεσσαλίας.[3, 1]</p>
-        <p>Τα Φάρσαλα, χτισμένα σε στρατηγικό πέρασμα, αποτέλεσαν διαχρονικά θέατρο σημαντικών γεγονότων, από την αρχαιότητα μέχρι τη νεότερη ιστορία.[3]</p>
+        <img src="https://raw.githubusercontent.com/conchr/Passa-Presentation/main/Passa%201.jpg" alt="Γέφυρα του Πασσά" class="bridge-image">
+        <div class="slide-content">
+            <p>Η γέφυρα ήταν ζωτικής σημασίας για την Οθωμανική διοίκηση, καθώς εξασφάλιζε την ομαλή διέλευση στρατευμάτων, αγαθών και εμπορίου στον κεντρικό άξονα της Θεσσαλίας.</p>
+            <p>Τα Φάρσαλα, χτισμένα σε στρατηγικό πέρασμα, αποτέλεσαν διαχρονικά θέατρο σημαντικών γεγονότων, από την αρχαιότητα μέχρι τη νεότερη ιστορία.</p>
+        </div>
     </div>
 
     <div class="slide" id="slide-9">
+        <div class="municipality-header">ΔΗΜΟΣ ΦΑΡΣΑΛΩΝ 2025</div>
         <h2>Η Γέφυρα στον Ελληνοτουρκικό Πόλεμο (1897)</h2>
-        <p>Η ευρύτερη περιοχή των Φαρσάλων ήταν κεντρικό θέατρο επιχειρήσεων κατά τον ατυχή πόλεμο του 1897, γνωστό ως «Πόλεμος των τριάντα ημερών».[5]</p>
-        <p>Η **Μάχη των Φαρσάλων** (23 Απριλίου 1897) ήταν κρίσιμη [6], και ο έλεγχος της Γέφυρας του Πασσά, ως του μοναδικού αξιόπιστου περάσματος του Ενιπέα, ήταν στρατηγικής σημασίας για την κίνηση των δυνάμεων.[7]</p>
+        <div class="slide-content">
+            <p>Η ευρύτερη περιοχή των Φαρσάλων ήταν κεντρικό θέατρο επιχειρήσεων κατά τον ατυχή πόλεμο του 1897, γνωστό ως «Πόλεμος των τριάντα ημερών».</p>
+            <p>Η <strong>Μάχη των Φαρσάλων</strong> (23 Απριλίου 1897) ήταν κρίσιμη, και ο έλεγχος της Γέφυρας του Πασσά, ως του μοναδικού αξιόπιστου περάσματος του Ενιπέα, ήταν στρατηγικής σημασίας για την κίνηση των δυνάμεων.</p>
+        </div>
     </div>
 
     <div class="slide" id="slide-10">
+        <div class="municipality-header">ΔΗΜΟΣ ΦΑΡΣΑΛΩΝ 2025</div>
         <h2>Προστασία: Διατηρητέο Μνημείο</h2>
-        <ul>
-            <li>**Καθεστώς:** Η Γέφυρα του Πασσά έχει ανακηρυχθεί **κηρυγμένο διατηρητέο μνημείο**.[1]</li>
-            <li>**Παροπλισμός:** Η λειτουργία της ως κύριος οδικός άξονας έπαυσε τη δεκαετία του 1990, μετά την κατασκευή μιας νέας γέφυρας ανατολικότερα.[3, 1]</li>
-            <li>**Διαχείριση:** Η προστασία και η συντήρησή της είναι πλέον ζήτημα πολιτιστικής κληρονομιάς.</li>
-        </ul>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Καθεστώς:</strong> Η Γέφυρα του Πασσά έχει ανακηρυχθεί <strong>κηρυγμένο διατηρητέο μνημείο</strong>.</li>
+                <li><strong>Παροπλισμός:</strong> Η λειτουργία της ως κύριος οδικός άξονας έπαυσε τη δεκαετία του 1990, μετά την κατασκευή μιας νέας γέφυρας ανατολικότερα.</li>
+                <li><strong>Διαχείριση:</strong> Η προστασία και η συντήρησή της είναι πλέον ζήτημα πολιτιστικής κληρονομιάς.</li>
+            </ul>
+        </div>
     </div>
 
     <div class="slide" id="slide-11">
+        <div class="municipality-header">ΔΗΜΟΣ ΦΑΡΣΑΛΩΝ 2025</div>
         <h2>Οι Σύγχρονες Προκλήσεις: Πλημμύρες</h2>
-        <p>Η ανθεκτικότητα του μνημείου δοκιμάζεται από τα ακραία καιρικά φαινόμενα, ειδικά τις πλημμύρες του ποταμού Ενιπέα.</p>
-        <p>Τα καταστροφικά φαινόμενα **Daniel και Elias** (2023) στην ευρύτερη Θεσσαλία υπενθυμίζουν τον κίνδυνο υποσκαφής των βάθρων και την ανάγκη για συνεχή αντιπλημμυρική προστασία και καθαρισμό της κοίτης του ποταμού **κατάντι και ανάντι** της γέφυρας.[8, 9, 10]</p>
+        <div class="slide-content">
+            <p>Η ανθεκτικότητα του μνημείου δοκιμάζεται από τα ακραία καιρικά φαινόμενα, ειδικά τις πλημμύρες του ποταμού Ενιπέα.</p>
+            <p>Τα καταστροφικά φαινόμενα <strong>Daniel και Elias</strong> (2023) στην ευρύτερη Θεσσαλία υπενθυμίζουν τον κίνδυνο υποσκαφής των βάθρων και την ανάγκη για συνεχή αντιπλημμυρική προστασία και καθαρισμό της κοίτης του ποταμού <strong>κατάντι και ανάντι</strong> της γέφυρας.</p>
+        </div>
     </div>
 
     <div class="slide" id="slide-12">
-        <h1>Η Κληρονομιά της Γέφυρας του Πασσά</h1>
-        <p>Η Πολύτοξη Γέφυρα του Ενιπέα αποτελεί ένα μοναδικό αρχιτεκτονικό τεκμήριο, ενδεικτικό της μηχανικής αρτιότητας και της στρατηγικής σημασίας των Φαρσάλων κατά την Οθωμανική περίοδο.</p>
-        <p>Η διατήρησή της είναι κρίσιμη όχι μόνο ως μνημείο, αλλά και ως ζωντανή απόδειξη της διαχρονικής σύνδεσης της Θεσσαλίας με τον υπόλοιπο ελληνικό χώρο.</p>
-        <p class="citation">Τέλος Παρουσίασης</p>
+        <div class="municipality-header">ΔΗΜΟΣ ΦΑΡΣΑΛΩΝ 2025</div>
+        <div class="slide-header">
+            <h1>Η Κληρονομιά της Γέφυρας του Πασσά</h1>
+        </div>
+        <div class="slide-content">
+            <p>Η Πολύτοξη Γέφυρα του Ενιπέα αποτελεί ένα μοναδικό αρχιτεκτονικό τεκμήριο, ενδεικτικό της μηχανικής αρτιότητας και της στρατηγικής σημασίας των Φαρσάλων κατά την Οθωμανική περίοδο.</p>
+            <p>Η διατήρησή της είναι κρίσιμη όχι μόνο ως μνημείο, αλλά και ως ζωντανή απόδειξη της διαχρονικής σύνδεσης της Θεσσαλίας με τον υπόλοιπο ελληνικό χώρο.</p>
+            <p class="citation">Τέλος Παρουσίασης</p>
+        </div>
     </div>
 
-    <div class="navigation">
-        <button class="nav-button" id="prev-button" onclick="changeSlide(-1)">Προηγούμενη</button>
-        <div class="slide-counter" id="slide-counter"></div>
-        <button class="nav-button" id="next-button" onclick="changeSlide(1)">Επόμενη</button>
+    <div class="slide" id="slide-13">
+        <div class="municipality-header">ΔΗΜΟΣ ΦΑΡΣΑΛΩΝ 2025</div>
+        <div class="slide-header">
+            <h1>Σας ευχαριστούμε που παρακολουθήσατε την παρουσίαση</h1>
+        </div>
+        <div class="slide-content">
+            <div class="final-buttons">
+                <a href="https://conchr.github.io/Passa-Quiz/" class="final-button">Θέλετε να κάνετε το κουίζ γνώσεων;</a>
+                <button class="final-button" onclick="restartPresentation()">Δείτε πάλι την Παρουσίαση</button>
+                <a href="https://conchr.github.io/Farsala-Center-Page/" class="final-button">Κεντρική Σελίδα</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-navigation" id="bottom-navigation">
+        <div class="nav-controls">
+            <button class="nav-button" id="prev-button" onclick="changeSlide(-1)">Προηγούμενη</button>
+            <div class="slide-counter" id="slide-counter"></div>
+            <button class="nav-button" id="next-button" onclick="changeSlide(1)">Επόμενη</button>
+        </div>
+        <a href="https://conchr.github.io/Farsala-Center-Page/" class="home-button" id="home-button">Κεντρική Σελίδα</a>
     </div>
 </div>
 
 <script>
     let currentSlide = 1;
-    const totalSlides = 12;
+    const totalSlides = 13;
     const slides = document.querySelectorAll('.slide');
     const counter = document.getElementById('slide-counter');
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+    const bottomNavigation = document.getElementById('bottom-navigation');
+    const homeButton = document.getElementById('home-button');
 
     function showSlide(n) {
         if (n < 1) {
@@ -227,20 +615,36 @@
         document.getElementById(`slide-${currentSlide}`).classList.add('active');
         counter.textContent = `Διαφάνεια ${currentSlide} / ${totalSlides}`;
 
-        document.getElementById('prev-button').disabled = currentSlide === 1;
-        document.getElementById('next-button').disabled = currentSlide === totalSlides;
+        // Update button states
+        prevButton.disabled = currentSlide === 1;
+        nextButton.disabled = currentSlide === totalSlides;
+
+        // Hide home button on the final slide
+        if (currentSlide === totalSlides) {
+            homeButton.style.display = 'none';
+        } else {
+            homeButton.style.display = 'inline-block';
+        }
     }
 
     function changeSlide(n) {
         showSlide(currentSlide + n);
     }
 
+    function restartPresentation() {
+        showSlide(1);
+    }
+
     // Event listener for keyboard navigation
     document.addEventListener('keydown', function(event) {
-        if (event.key === 'ArrowRight') {
+        if (event.key === 'ArrowRight' || event.key === ' ') {
             changeSlide(1);
         } else if (event.key === 'ArrowLeft') {
             changeSlide(-1);
+        } else if (event.key === 'Home') {
+            showSlide(1);
+        } else if (event.key === 'End') {
+            showSlide(totalSlides);
         }
     });
 
