@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Η Γέφυρα του Πασσά: Ένα Μνημείο στα Φάρσαλα</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        #presentation-container {
+            width: 90vw;
+            height: 80vh;
+            max-width: 1200px;
+            max-height: 800px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+       .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            box-sizing: border-box;
+            text-align: center;
+            transition: opacity 0.5s ease-in-out;
+            background-color: #ffffff;
+        }
+       .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+        h1 {
+            color: #007bff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #28a745;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        p, li {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 10px 0;
+            max-width: 80%;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+       .citation {
+            font-size: 0.8em;
+            color: #888;
+            margin-top: 5px;
+        }
+       .navigation {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+       .nav-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+       .nav-button:hover {
+            background-color: #0056b3;
+        }
+       .slide-counter {
+            font-size: 1em;
+            color: #555;
+            align-self: flex-end;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="presentation-container">
+    <div class="slide" id="slide-1">
+        <h1>Η Γέφυρα του Πασσά στα Φάρσαλα</h1>
+        <h2>Ένα Μνημείο 270 Ετών στον Ποταμό Ενιπέα</h2>
+        <p class="citation">Χρησιμοποιήστε τα βέλη στο πληκτρολόγιο ή τα κουμπιά για πλοήγηση.</p>
+    </div>
+
+    <div class="slide" id="slide-2">
+        <h2>Πού Βρίσκεται και Ποιο Είναι το Όνομά Της;</h2>
+        <ul>
+            <li>**Θέση:** Βρίσκεται βόρεια της πόλης των Φαρσάλων, διασχίζοντας τον ποταμό Ενιπέα.[1]</li>
+            <li>**Ιστορικό Όνομα:** «Γεφύρι του Πασσά» (λόγω του κτήτορα) ή «Τσιναρλή» (κατά την Οθωμανική περίοδο).[2, 1]</li>
+            <li>**Σημασία:** Ήταν κεντρικό πέρασμα στον δρόμο που συνέδεε τη Λάρισα με τον Δομοκό, δηλαδή τη Βόρεια με τη Νότια Ελλάδα.[3, 1]</li>
+        </ul>
+    </div>
+
+    <div class="slide" id="slide-3">
+        <h2>Πότε και Ποιος την Έκτισε;</h2>
+        <ul>
+            <li>**Έτος Κατασκευής:** Το μνημείο οικοδομήθηκε αρχικά το **1752**.[3, 1]</li>
+            <li>**Ο Κτήτορας:** Η κατασκευή έγινε με διαταγή του τότε Οθωμανού διοικητή (Wali) της Θεσσαλίας, **Αχμέτ Ραμίτ Πασά**.[1]</li>
+            <li>**Πλαίσιο:** Πρόκειται για ένα από τα σημαντικότερα κοσμικά τεχνικά έργα της Ύστερης Οθωμανικής περιόδου στη Θεσσαλία.[1]</li>
+        </ul>
+    </div>
+
+    <div class="slide" id="slide-4">
+        <h2>Εντυπωσιακές Διαστάσεις</h2>
+        <ul>
+            <li>**Συνολικό Μήκος:** 110 μέτρα.[3, 1]</li>
+            <li>**Πλάτος Φορέα:** 5,5 μέτρα.[3]</li>
+            <li>**Αρχιτεκτονική Αξία:** Το μήκος αυτό την καθιστά πιθανόν τη **μεγαλύτερη σωζόμενη τοξωτή γέφυρα** της Οθωμανικής περιόδου στον ελλαδικό χώρο.[1]</li>
+        </ul>
+    </div>
+
+    <div class="slide" id="slide-5">
+        <h2>Το Μυστικό της Αντοχής: Τα 7 Ανισομεγέθη Τόξα</h2>
+        <ul>
+            <li>**Δομή:** Η γέφυρα αποτελείται από **επτά (7) τόξα**.[1]</li>
+            <li>**Μηχανική Λύση:** Τα τόξα είναι **ανισομεγέθη** σε άνοιγμα και ύψος.[1]</li>
+            <li>**Στόχος:** Η έξυπνη αυτή κατασκευή σχεδιάστηκε για να ανταποκρίνεται στη φυσική ροή του Ενιπέα και να διασφαλίζει την απαραίτητη εκτόνωση του υδάτινου όγκου κατά τις πλημμύρες, αυξάνοντας τη μακροχρόνια αντοχή της.[1]</li>
+        </ul>
+    </div>
+
+    <div class="slide" id="slide-6">
+        <h2>Πέτρα και Τεχνογνωσία</h2>
+        <ul>
+            <li>**Υλικό:** Κατασκευάστηκε με λιθοδομή, ακολουθώντας τις παραδοσιακές τεχνικές της εποχής.[4]</li>
+            <li>**Δομικά Μέρη:** Οι πυλώνες (βάθρα) αποτελούνται από ξεστές λιθοδομές, ενώ το τύμπανο και η κορωνίδα χρησιμοποιούν λαξευτές πέτρες.[4]</li>
+            <li>**Ποιότητα:** Η υψηλή ποιότητα της δόμησης ήταν απαραίτητη για να αντέξει τόσο στην κυκλοφορία όσο και στις υδρολογικές πιέσεις.[4]</li>
+        </ul>
+    </div>
+
+    <div class="slide" id="slide-7">
+        <h2>Μετασκευές και Αλλαγές</h2>
+        <ul>
+            <li>**20ός Αιώνας:** Μετά την απελευθέρωση της Θεσσαλίας (1881), η γέφυρα μετατράπηκε σε αμαξιτή οδό για να εξυπηρετήσει τις απαιτήσεις του νεοσύστατου ελληνικού κράτους.[1]</li>
+            <li>**Το Βορειότερο Τόξο:** Το μικρότερο και βορειότερο τόξο κατασκευάσθηκε αργότερα, σε διαφορετική φάση δόμησης, και ενισχύθηκε με πέτρινο στηθαίο, σημάδι μεταγενέστερης επισκευής ή επέκτασης.[1]</li>
+        </ul>
+    </div>
+
+    <div class="slide" id="slide-8">
+        <h2>Κόμβος Μεταφορών: Η Στρατηγική Σημασία</h2>
+        <p>Η γέφυρα ήταν ζωτικής σημασίας για την Οθωμανική διοίκηση, καθώς εξασφάλιζε την ομαλή διέλευση στρατευμάτων, αγαθών και εμπορίου στον κεντρικό άξονα της Θεσσαλίας.[3, 1]</p>
+        <p>Τα Φάρσαλα, χτισμένα σε στρατηγικό πέρασμα, αποτέλεσαν διαχρονικά θέατρο σημαντικών γεγονότων, από την αρχαιότητα μέχρι τη νεότερη ιστορία.[3]</p>
+    </div>
+
+    <div class="slide" id="slide-9">
+        <h2>Η Γέφυρα στον Ελληνοτουρκικό Πόλεμο (1897)</h2>
+        <p>Η ευρύτερη περιοχή των Φαρσάλων ήταν κεντρικό θέατρο επιχειρήσεων κατά τον ατυχή πόλεμο του 1897, γνωστό ως «Πόλεμος των τριάντα ημερών».[5]</p>
+        <p>Η **Μάχη των Φαρσάλων** (23 Απριλίου 1897) ήταν κρίσιμη [6], και ο έλεγχος της Γέφυρας του Πασσά, ως του μοναδικού αξιόπιστου περάσματος του Ενιπέα, ήταν στρατηγικής σημασίας για την κίνηση των δυνάμεων.[7]</p>
+    </div>
+
+    <div class="slide" id="slide-10">
+        <h2>Προστασία: Διατηρητέο Μνημείο</h2>
+        <ul>
+            <li>**Καθεστώς:** Η Γέφυρα του Πασσά έχει ανακηρυχθεί **κηρυγμένο διατηρητέο μνημείο**.[1]</li>
+            <li>**Παροπλισμός:** Η λειτουργία της ως κύριος οδικός άξονας έπαυσε τη δεκαετία του 1990, μετά την κατασκευή μιας νέας γέφυρας ανατολικότερα.[3, 1]</li>
+            <li>**Διαχείριση:** Η προστασία και η συντήρησή της είναι πλέον ζήτημα πολιτιστικής κληρονομιάς.</li>
+        </ul>
+    </div>
+
+    <div class="slide" id="slide-11">
+        <h2>Οι Σύγχρονες Προκλήσεις: Πλημμύρες</h2>
+        <p>Η ανθεκτικότητα του μνημείου δοκιμάζεται από τα ακραία καιρικά φαινόμενα, ειδικά τις πλημμύρες του ποταμού Ενιπέα.</p>
+        <p>Τα καταστροφικά φαινόμενα **Daniel και Elias** (2023) στην ευρύτερη Θεσσαλία υπενθυμίζουν τον κίνδυνο υποσκαφής των βάθρων και την ανάγκη για συνεχή αντιπλημμυρική προστασία και καθαρισμό της κοίτης του ποταμού **κατάντι και ανάντι** της γέφυρας.[8, 9, 10]</p>
+    </div>
+
+    <div class="slide" id="slide-12">
+        <h1>Η Κληρονομιά της Γέφυρας του Πασσά</h1>
+        <p>Η Πολύτοξη Γέφυρα του Ενιπέα αποτελεί ένα μοναδικό αρχιτεκτονικό τεκμήριο, ενδεικτικό της μηχανικής αρτιότητας και της στρατηγικής σημασίας των Φαρσάλων κατά την Οθωμανική περίοδο.</p>
+        <p>Η διατήρησή της είναι κρίσιμη όχι μόνο ως μνημείο, αλλά και ως ζωντανή απόδειξη της διαχρονικής σύνδεσης της Θεσσαλίας με τον υπόλοιπο ελληνικό χώρο.</p>
+        <p class="citation">Τέλος Παρουσίασης</p>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-button" id="prev-button" onclick="changeSlide(-1)">Προηγούμενη</button>
+        <div class="slide-counter" id="slide-counter"></div>
+        <button class="nav-button" id="next-button" onclick="changeSlide(1)">Επόμενη</button>
+    </div>
+</div>
+
+<script>
+    let currentSlide = 1;
+    const totalSlides = 12;
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.getElementById('slide-counter');
+
+    function showSlide(n) {
+        if (n < 1) {
+            currentSlide = 1;
+        } else if (n > totalSlides) {
+            currentSlide = totalSlides;
+        } else {
+            currentSlide = n;
+        }
+
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+
+        document.getElementById(`slide-${currentSlide}`).classList.add('active');
+        counter.textContent = `Διαφάνεια ${currentSlide} / ${totalSlides}`;
+
+        document.getElementById('prev-button').disabled = currentSlide === 1;
+        document.getElementById('next-button').disabled = currentSlide === totalSlides;
+    }
+
+    function changeSlide(n) {
+        showSlide(currentSlide + n);
+    }
+
+    // Event listener for keyboard navigation
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowRight') {
+            changeSlide(1);
+        } else if (event.key === 'ArrowLeft') {
+            changeSlide(-1);
+        }
+    });
+
+    // Initialize the presentation
+    showSlide(currentSlide);
+</script>
+</body>
+</html>
